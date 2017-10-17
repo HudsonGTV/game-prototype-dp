@@ -1,0 +1,8 @@
+TextContent = 
+{
+	ZilchScriptBuilder = 
+	{
+		string Name = "MineLogic",
+		uint64 ResourceId = 599dd47462dd9ede,
+	},
+},
