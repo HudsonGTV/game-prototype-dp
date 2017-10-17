@@ -1,0 +1,8 @@
+TextContent = 
+{
+	ZilchScriptBuilder = 
+	{
+		string Name = "EGun",
+		uint64 ResourceId = 599ddac765db9246,
+	},
+},
