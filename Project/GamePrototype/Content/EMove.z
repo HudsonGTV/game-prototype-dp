@@ -1,0 +1,26 @@
+class EMove : ZilchComponent
+{
+    var CursorPos : Real3 = Real3(0, 0, 0);
+    
+    var Vec : Real3;
+    
+    [Property]
+    var Speed : Real = 1.0;
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        
+        this.CursorPos = this.Space.FindObjectByName("Player").Transform.Translation;
+        this.Vec = this.CursorPos - this.Owner.Transform.Translation;
+        Math.Normalize(this.Vec);
+        var a = Math.ATan2(this.Vec.Y, this.Vec.X);
+        this.Vec = Real3(Math.Cos(a), Math.Sin(a), 0);
+        
+        this.Owner.Transform.Translation += this.Vec * event.Dt * this.Speed;
+        
+    }
+}

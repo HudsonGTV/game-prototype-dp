@@ -2,14 +2,34 @@ class Health : ZilchComponent
 {
     [Property]
     var Health : Integer = 50;
+    [Property]
+    var DColor : Real4 = Real4(1, 0, 0, 1);
+    
+    var PrevH : Integer = 50;
+    
+    var Timer : Real = -1;
+    
+    var OColor : Real4;
     function Initialize(init : CogInitializer)
     {
-        //Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+        this.PrevH = this.Health;
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+        this.OColor = this.Owner.Sprite.Color;
     }
 
     function OnLogicUpdate(event : UpdateEvent)
     {
-        
+        if(this.Health < this.PrevH){
+            this.Timer = 0.05;
+            this.Owner.Sprite.Color = Real4(1, 0, 0, 1);
+        }
+        if(this.Timer > -1){
+            this.Timer -= event.Dt;
+            if(this.Timer <= 0){
+                this.Owner.Sprite.Color = this.OColor;
+            }
+        }
+        this.PrevH = this.Health;
         if(this.Health <= 0){
             if(this.Owner.Name == "Player")
                 this.GameSession.Quit();

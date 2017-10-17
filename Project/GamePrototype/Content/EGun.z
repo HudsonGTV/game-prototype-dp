@@ -1,0 +1,35 @@
+class EGun : ZilchComponent
+{
+    var CursorPos : Real3 = Real3(0, 0, 0);
+    
+    var Vec : Real3;
+    
+    [Property]
+    var BSpeed : Real = 15.0;
+    [Property]
+    var Interval : Real = 0.5;
+    var Timer : Real = 0.0;
+    
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+        this.Timer = this.Interval;
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        this.Timer -= event.Dt;
+        
+        if(this.Timer <= 0){
+            this.Timer = this.Interval;
+            this.CursorPos = this.Space.FindObjectByName("Player").Transform.Translation;
+            this.Vec = this.CursorPos - this.Owner.Transform.Translation;
+            Math.Normalize(this.Vec);
+            var a = Math.ATan2(this.Vec.Y, this.Vec.X);
+            this.Vec = Real3(Math.Cos(a), Math.Sin(a), 0);
+            var b = this.Space.CreateAtPosition(Archetype.EBullet, this.Owner.Transform.Translation);
+            b.Bullet.Dir = this.Vec;
+            b.Bullet.Speed = this.BSpeed;
+        }
+    }
+}

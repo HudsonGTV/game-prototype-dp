@@ -5,6 +5,9 @@ class PlayerGun : ZilchComponent
     
     var Vec : Real3;
     
+    [Property]
+    var BSpeed : Real = 15.0;
+    
     function Initialize(init : CogInitializer)
     {
         Zero.Connect(this.Space, Events.MouseDown, this.OnMouseDown);
@@ -21,6 +24,7 @@ class PlayerGun : ZilchComponent
         if(event.Mouse.IsButtonDown(MouseButtons.Left)){
             var b = this.Space.CreateAtPosition(Archetype.PBullet, this.Owner.Transform.Translation);
             b.Bullet.Dir = this.Vec;
+            b.Bullet.Speed = this.BSpeed;
         }
     }
 }

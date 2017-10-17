@@ -29,18 +29,18 @@ class Bullet : ZilchComponent
         else if(event.OtherObject.Name == "E" && this.Player){
             this.HitThem(event.OtherObject);
         }
+        
+        if(this.Player && event.OtherObject.Name != "Player" && event.OtherObject.Name != "PBullet" && event.OtherObject.Name != "EBullet"){
+            this.Owner.Destroy();
+        }
+        else if(!this.Player && event.OtherObject.Name != "E" && event.OtherObject.Name != "PBullet" && event.OtherObject.Name != "EBullet"){
+            this.Owner.Destroy();
+        }
     }
     
     function HitThem(other : Cog){
         
         other.Health.Health -= this.Damage;
-        
-        if(this.Player && other.Name != "Player"){
-            this.Owner.Destroy();
-        }
-        else if(!this.Player && other.Name != "E"){
-            this.Owner.Destroy();
-        }
         
     }
 }
