@@ -116,7 +116,7 @@ Level =
 			float FieldOfView = 45,
 			float NearPlane = 0.5,
 			float FarPlane = 500,
-			float Size = 12.0993004,
+			float Size = 13.3717937,
 		},
 		EditorCameraController = 
 		{
@@ -168,15 +168,12 @@ Level =
 			float Volume = 1,
 		},
 	},
-	Cog = 
+	ArchetypeInstance = 
 	{
+		string Name = "599dd188bf05af40:Player",
 		LinkId = 
 		{
 			uint Id = 4,
-		},
-		Named = 
-		{
-			string Name = "Player",
 		},
 		Transform = 
 		{
@@ -184,46 +181,9 @@ Level =
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
-		Sprite = 
+		Named = 
 		{
-			bool Visible = true,
-			bool VisibilityCulling = true,
-			bool VisibilityEvents = true,
-			bool CastShadows = false,
-			Vec4 Color = [1, 1, 1, 1],
-			BlendMode BlendMode = Alpha,
-			SpriteGeometryMode GeometryMode = ZPlane,
-			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-			string SpriteSource = "599dd750fa565cc6:SpritePlayer",
-			bool RenderMask = false,
-			bool FlipX = false,
-			bool FlipY = false,
-			bool AnimationActive = true,
-			float AnimationSpeed = 1,
-			uint StartFrame = 0,
-		},
-		Movement = 
-		{
-			float MovementSpeed = 500,
-		},
-		RigidBody = 
-		{
-			bool Static = false,
-			bool Asleep = false,
-			bool Kinematic = false,
-			bool RotationLocked = false,
-			bool Mode2D = true,
-			bool AllowSleep = true,
-			bool Inherit2DMode = true,
-			Vec3 Velocity = [0, 0, 0],
-			Vec3 AngularVelocity = [0, 0, 0],
-		},
-		PlayerGun = 
-		{
-		},
-		Health = 
-		{
-			int Health = 50,
+			string Name = "Player",
 		},
 	},
 },
