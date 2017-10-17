@@ -69,7 +69,7 @@ Level =
 		},
 		ForwardRenderer = 
 		{
-			Vec4 ClearColor = [0.155000001, 0.155000001, 0.155000001, 1],
+			Vec4 ClearColor = [0.555000007, 0.266538829, 0.0305250287, 1],
 			bool DrawNonVisible = false,
 			bool DrawDebugObjects = true,
 			bool DrawEditorIcons = true,
@@ -110,7 +110,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-1.53398061, 0.769980729, 50],
+			Vec3 Translation = [0, 0, 50],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [-0, -1.09278471e-08, 0, 1],
 		},
@@ -122,7 +122,7 @@ Level =
 			float FieldOfView = 45,
 			float NearPlane = 0.5,
 			float FarPlane = 500,
-			float Size = 24.4280281,
+			float Size = 14.8163548,
 		},
 		EditorCameraController = 
 		{
@@ -130,7 +130,7 @@ Level =
 			float LookDistance = 50,
 			float VerticalAngle = 0,
 			float HorizontalAngle = 0,
-			Vec3 LookTarget = [-1.53398061, 0.769980729, -6.70524614e-08],
+			Vec3 LookTarget = [0, 0, 0],
 			float MoveSensitivity = 1,
 		},
 		EditorRenderer = 
@@ -203,124 +203,28 @@ Level =
 		},
 		TileMap = 
 		{
-			string SourceName = "599da333c2d60aa1:BossLevel_TileMap00",
-			string PaletteName = "",
+			string SourceName = "599dcd5968ff60ec:BossLevel_TileMap01",
+			string PaletteName = "599dd20e4d4a5250:tiles",
 			float UnitsPerTile = 1,
 			float MeshThickness = 1.20000005,
 		},
 	},
-	Cog = 
+	ArchetypeInstance = 
 	{
+		string Name = "599dd188bf05af40:Player",
 		LinkId = 
 		{
 			uint Id = 5,
 		},
-		Named = 
-		{
-			string Name = "Player",
-		},
 		Transform = 
 		{
-			Vec3 Translation = [0, 0, 0],
+			Vec3 Translation = [1.09278471e-06, 0.0407044925, 0],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
-		Sprite = 
-		{
-			bool Visible = true,
-			bool VisibilityCulling = true,
-			bool VisibilityEvents = true,
-			bool CastShadows = false,
-			Vec4 Color = [1, 1, 1, 1],
-			BlendMode BlendMode = Alpha,
-			SpriteGeometryMode GeometryMode = ZPlane,
-			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-			string SpriteSource = "5275aa4d802dd6dc:Square",
-			bool RenderMask = false,
-			bool FlipX = false,
-			bool FlipY = false,
-			bool AnimationActive = true,
-			float AnimationSpeed = 1,
-			uint StartFrame = 0,
-		},
-		Movement = 
-		{
-			float MovementSpeed = 500,
-		},
-		RigidBody = 
-		{
-			bool Static = false,
-			bool Asleep = false,
-			bool Kinematic = false,
-			bool RotationLocked = true,
-			bool Mode2D = true,
-			bool AllowSleep = true,
-			bool Inherit2DMode = true,
-			Vec3 Velocity = [0, 0, 0],
-			Vec3 AngularVelocity = [0, 0, 0],
-		},
-		BoxCollider = 
-		{
-			bool Ghost = false,
-			bool SendsMessages = true,
-			bool Seamless = true,
-			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
-			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
-			Vec3 Offset = [0, 0, 0],
-			Vec3 Size = [0.5, 0.5, 0.5],
-		},
-		Health = 
-		{
-			int Health = 1,
-		},
-	},
-	Cog = 
-	{
-		LinkId = 
-		{
-			uint Id = 6,
-		},
 		Named = 
 		{
-			string Name = "Mine",
-		},
-		Transform = 
-		{
-			Vec3 Translation = [-5.71935558, 0.826385021, 0],
-			Vec3 Scale = [0.5, 0.5, 1],
-			Quat Rotation = [0, 0, 0, 1],
-		},
-		Sprite = 
-		{
-			bool Visible = true,
-			bool VisibilityCulling = true,
-			bool VisibilityEvents = true,
-			bool CastShadows = false,
-			Vec4 Color = [1, 1, 1, 1],
-			BlendMode BlendMode = Alpha,
-			SpriteGeometryMode GeometryMode = ZPlane,
-			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-			string SpriteSource = "5274db4c2e7c11f9:Circle",
-			bool RenderMask = false,
-			bool FlipX = false,
-			bool FlipY = false,
-			bool AnimationActive = true,
-			float AnimationSpeed = 1,
-			uint StartFrame = 0,
-		},
-		SphereCollider = 
-		{
-			bool Ghost = true,
-			bool SendsMessages = true,
-			bool Seamless = true,
-			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
-			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
-			Vec3 Offset = [0, 0, 0],
-			float Radius = 0.300000012,
-		},
-		MineLogic = 
-		{
-			float TimeOut = 0,
+			string Name = "Player",
 		},
 	},
 },
