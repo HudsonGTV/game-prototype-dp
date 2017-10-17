@@ -122,7 +122,7 @@ Level =
 			float FieldOfView = 45,
 			float NearPlane = 0.5,
 			float FarPlane = 500,
-			float Size = 14.8163548,
+			float Size = 24.4280281,
 		},
 		EditorCameraController = 
 		{
@@ -221,6 +221,28 @@ Level =
 			Vec3 Translation = [1.09278471e-06, 0.0407044925, 0],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
+		},
+		Named = 
+		{
+			string Name = "Player",
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "599dd3d671034940:Boss",
+		LinkId = 
+		{
+			uint Id = 6,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [8, 3, 0],
+			Vec3 Scale = [2, 2, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Named = 
+		{
+			string Name = "E",
 		},
 	},
 },

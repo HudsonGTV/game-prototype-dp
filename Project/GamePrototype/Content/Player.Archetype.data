@@ -14,7 +14,7 @@ Cog =
 	},
 	Transform = 
 	{
-		Vec3 Translation = [-0.5, 0.5, 0],
+		Vec3 Translation = [1.09278471e-06, 0.0407044925, 0],
 		Vec3 Scale = [1, 1, 1],
 		Quat Rotation = [0, 0, 0, 1],
 	},
@@ -41,7 +41,7 @@ Cog =
 		bool Static = false,
 		bool Asleep = false,
 		bool Kinematic = false,
-		bool RotationLocked = false,
+		bool RotationLocked = true,
 		bool Mode2D = true,
 		bool AllowSleep = true,
 		bool Inherit2DMode = true,
@@ -54,10 +54,12 @@ Cog =
 	},
 	PlayerGun = 
 	{
+		float BSpeed = 15,
 	},
 	Health = 
 	{
 		int Health = 50,
+		Vec4 DColor = [1, 0, 0, 1],
 	},
 	BoxCollider = 
 	{
