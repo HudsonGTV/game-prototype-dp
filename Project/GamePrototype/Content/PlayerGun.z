@@ -7,7 +7,6 @@ class PlayerGun : ZilchComponent
     
     function Initialize(init : CogInitializer)
     {
-        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
         Zero.Connect(this.Space, Events.MouseDown, this.OnMouseDown);
     }
 
@@ -16,16 +15,12 @@ class PlayerGun : ZilchComponent
         this.CursorPos = event.ToWorldZPlane(0);
         this.Vec = this.CursorPos - this.Owner.Transform.Translation;
         Math.Normalize(this.Vec);
-                
+        var a = Math.ATan2(this.Vec.Y, this.Vec.X);
+        this.Vec = Real3(Math.Cos(a), Math.Sin(a), 0);
+        
         if(event.Mouse.IsButtonDown(MouseButtons.Left)){
             var b = this.Space.CreateAtPosition(Archetype.PBullet, this.Owner.Transform.Translation);
             b.Bullet.Dir = this.Vec;
         }
-    }
-
-    function OnLogicUpdate(event : UpdateEvent)
-    {
-        
-        
     }
 }

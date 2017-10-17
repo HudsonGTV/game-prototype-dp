@@ -5,6 +5,8 @@ class Bullet : ZilchComponent
     var Player : Boolean = false;
     [Property]
     var Damage : Integer = 1;
+    [Property]
+    var Speed : Real = 5.0;
     
     var Dir : Real3 = Real3(0,0,0);
     
@@ -16,7 +18,7 @@ class Bullet : ZilchComponent
 
     function OnLogicUpdate(event : UpdateEvent)
     {
-        this.Owner.RigidBody.Velocity = this.Dir;
+        this.Owner.RigidBody.Velocity = this.Dir * this.Speed;
     }
 
     function OnCollisionStarted(event : CollisionEvent)
