@@ -218,7 +218,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [1.09278471e-06, 0.0407044925, 0],
+			Vec3 Translation = [-11.5, 0, 0],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -236,13 +236,85 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [8, 3, 0],
+			Vec3 Translation = [10, 0, 0],
 			Vec3 Scale = [2, 2, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
 		Named = 
 		{
 			string Name = "E",
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "599dd348a976c5fa:Mine",
+		LinkId = 
+		{
+			uint Id = 7,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [-0.5, 1, 0],
+			Vec3 Scale = [0.5, 0.5, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Named = 
+		{
+			string Name = "Mine",
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "599dd348a976c5fa:Mine",
+		LinkId = 
+		{
+			uint Id = 8,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [4, 2.5, 0],
+			Vec3 Scale = [0.5, 0.5, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Named = 
+		{
+			string Name = "Mine",
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "599dd348a976c5fa:Mine",
+		LinkId = 
+		{
+			uint Id = 9,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [2, -5, 0],
+			Vec3 Scale = [0.5, 0.5, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Named = 
+		{
+			string Name = "Mine",
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "599dd348a976c5fa:Mine",
+		LinkId = 
+		{
+			uint Id = 10,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [-1.5, -3, 0],
+			Vec3 Scale = [0.5, 0.5, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Named = 
+		{
+			string Name = "Mine",
 		},
 	},
 },

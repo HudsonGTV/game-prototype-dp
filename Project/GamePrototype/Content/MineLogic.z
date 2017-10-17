@@ -2,6 +2,8 @@ class MineLogic : ZilchComponent
 {
     [Property]
     var TimeOut : Real = 5.0;
+    [Property]
+    var EnableTimeout : Boolean = false;
     
     var Time : Real = 0.0;
     
@@ -22,13 +24,15 @@ class MineLogic : ZilchComponent
         }
     }
     
-     function OnLogicUpdate(event : UpdateEvent)
+    function OnLogicUpdate(event : UpdateEvent)
     {
-        this.Time += event.Dt;
-        
-        if(this.Time > this.TimeOut)
-        {
-            this.Owner.Destroy();
+        if(this.EnableTimeout) {
+            this.Time += event.Dt;
+            
+            if(this.Time > this.TimeOut)
+            {
+                this.Owner.Destroy();
+            }
         }
     }
 }
