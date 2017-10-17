@@ -1,0 +1,31 @@
+class RandomObjects : ZilchComponent
+{
+    [Property]
+    var AmountOfObjects : Real = 0.0;
+    
+    [Property]
+    var Borders : Real3 = Real3(0.0, 0.0, 0.0);
+    
+    [Property]
+    var ObjectToSpawn : Archetype = Archetype.Object;
+    
+    var RandomGenerator : Random = Random();
+    
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Space, Events.LevelStarted, this.OnLevelStarted);
+    }
+
+    function OnLevelStarted(event : GameEvent)
+    {
+        for( var i = 0; i < this.AmountOfObjects; ++i)
+        {
+            var position = Real3(this.RandomGenerator.Range(this.Borders.X, this.Borders.X * -1),
+                                 this.RandomGenerator.Range(this.Borders.Y, this.Borders.Y * -1), 0);
+            
+            position = Math.Round(position);
+            
+            this.Space.CreateAtPosition(this.ObjectToSpawn, position);
+        }
+    }
+}
