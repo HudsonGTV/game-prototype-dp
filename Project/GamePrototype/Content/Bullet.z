@@ -1,0 +1,44 @@
+class Bullet : ZilchComponent
+{
+    
+    [Property]
+    var Player : Boolean = false;
+    [Property]
+    var Damage : Integer = 1;
+    
+    var Dir : Real3 = Real3(0,0,0);
+    
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Owner, Events.CollisionStarted, this.OnCollisionStarted);
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        this.Owner.RigidBody.Velocity = this.Dir;
+    }
+
+    function OnCollisionStarted(event : CollisionEvent)
+    {
+        if(event.OtherObject.Name == "Player" && !this.Player){
+            this.HitThem(event.OtherObject);
+        }
+        else if(event.OtherObject.Name == "E" && this.Player){
+            this.HitThem(event.OtherObject);
+        }
+    }
+    
+    function HitThem(other : Cog){
+        
+        other.Health.Health -= this.Damage;
+        
+        if(this.Player && other.Name != "Player"){
+            this.Owner.Destroy();
+        }
+        else if(!this.Player && other.Name != "E"){
+            this.Owner.Destroy();
+        }
+        
+    }
+}

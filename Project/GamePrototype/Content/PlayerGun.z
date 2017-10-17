@@ -1,0 +1,31 @@
+class PlayerGun : ZilchComponent
+{
+    
+    var CursorPos : Real3 = Real3(0, 0, 0);
+    
+    var Vec : Real3;
+    
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+        Zero.Connect(this.Space, Events.MouseDown, this.OnMouseDown);
+    }
+
+    function OnMouseDown(event : ViewportMouseEvent)
+    {
+        this.CursorPos = event.ToWorldZPlane(0);
+        this.Vec = this.CursorPos - this.Owner.Transform.Translation;
+        Math.Normalize(this.Vec);
+                
+        if(event.Mouse.IsButtonDown(MouseButtons.Left)){
+            var b = this.Space.CreateAtPosition(Archetype.PBullet, this.Owner.Transform.Translation);
+            b.Bullet.Dir = this.Vec;
+        }
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        
+        
+    }
+}
