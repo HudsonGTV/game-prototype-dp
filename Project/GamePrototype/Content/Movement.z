@@ -2,30 +2,60 @@ class Movement : ZilchComponent
 {
     
     [Property]
-    var MovementSpeed : Real = 5.0;
+    var MovementSpeed : Real = 10.0;
     
     function Initialize(init : CogInitializer)
     {
-        Zero.Connect(this.Owner, Events.KeyDown, this.OnKeyDown);
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
     }
 
-    function OnKeyDown(event : KeyboardEvent)
+    function OnLogicUpdate(event : UpdateEvent)
     {
         
-        if(event.Keyboard.KeyIsDown(Keys.W)) {
-            this.Owner.Transform.Translation.Y += this.MovementSpeed;
-        }
+        this.Owner.RigidBody.Velocity = Real3(0,0,0);
         
-        if(event.Keyboard.KeyIsDown(Keys.S)) {
-            this.Owner.Transform.Translation.Y -= this.MovementSpeed;
-        }
+        var r3Speed = Real3(0,0,0);
+        var velocity = this.Owner.RigidBody.Velocity;
         
-        if(event.Keyboard.KeyIsDown(Keys.D)) {
-            this.Owner.Transform.Translation.X += this.MovementSpeed;
-        }
         
-        if(event.Keyboard.KeyIsDown(Keys.A)) {
-            this.Owner.Transform.Translation.X -= this.MovementSpeed;
+        r3Speed = Real3(this.MovementSpeed * event.Dt, this.MovementSpeed * event.Dt, this.MovementSpeed * event.Dt);
+        
+        
+        if(Zero.Keyboard.KeyIsDown(Keys.A) && Zero.Keyboard.KeyIsDown(Keys.S))
+        {
+            this.Owner.RigidBody.Velocity = Real3(-0.8,-0.8,0) * r3Speed;
+        }
+        else if(Zero.Keyboard.KeyIsDown(Keys.D) && Zero.Keyboard.KeyIsDown(Keys.S))
+        {
+            this.Owner.RigidBody.Velocity = Real3(0.8,-0.8,0) * r3Speed;
+        }
+        else if(Zero.Keyboard.KeyIsDown(Keys.A) && Zero.Keyboard.KeyIsDown(Keys.W))
+        {
+            this.Owner.RigidBody.Velocity = Real3(-0.8,0.8,0) * r3Speed;
+        }
+        else if(Zero.Keyboard.KeyIsDown(Keys.D) && Zero.Keyboard.KeyIsDown(Keys.W))
+        {
+            this.Owner.RigidBody.Velocity = Real3(0.8,0.8,0) * r3Speed;
+        }
+        else if(Zero.Keyboard.KeyIsDown(Keys.W))
+        {
+            this.Owner.RigidBody.Velocity = Real3(0,1,0) * r3Speed;
+        }
+        else if(Zero.Keyboard.KeyIsDown(Keys.A))
+        {
+            this.Owner.RigidBody.Velocity = Real3(-1,0,0) * r3Speed;
+        }
+        else if(Zero.Keyboard.KeyIsDown(Keys.S))
+        {
+            this.Owner.RigidBody.Velocity = Real3(0,-1,0) * r3Speed;
+        }
+        else if(Zero.Keyboard.KeyIsDown(Keys.D))
+        {
+            this.Owner.RigidBody.Velocity = Real3(1,0,0) * r3Speed;
+        }
+        else
+        {
+            this.Owner.RigidBody.Velocity = Real3(0,0,0);
         }
         
     }
